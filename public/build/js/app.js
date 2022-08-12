@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(function(){!function(){const e=document.querySelector(".barra"),n=document.querySelector(".contenido-principal");document.querySelector("body"),window.addEventListener("scroll",(function(){n.getBoundingClientRect().top<0?e.classList.add("fijo"):e.classList.remove("fijo")}))}()}));
