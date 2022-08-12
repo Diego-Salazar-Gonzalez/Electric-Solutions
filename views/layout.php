@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/build/css/app.css">
-  <!-- <link rel="icon" href="img/ag-icon.png"> -->
+   <link rel="icon" href="/build/img/ag-icon.png"> 
   <title>Electric Solutions</title>
 </head>
 <body>
