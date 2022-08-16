@@ -12,7 +12,7 @@
         
     <?php endforeach;?>
 
-    <form action="/login" class="formulario-login" method="POST">
+    <form action="/login" class="formulario-login " method="POST">
         <fieldset>
             
 
