@@ -28,6 +28,25 @@ class ActiveRecord {
         static::$alertas = [];
         return static::$alertas;
     }
+    public function setImg($imagen) {
+        // Elimina la imagen previa
+        if( !is_null($this->id) ) {
+            $this->borrarImagen();
+        }
+        // Asignar al atributo de imagen el nombre de la imagen
+        if($imagen) {
+            $this->imagen = $imagen;
+        }
+    }
+
+    // Elimina el archivo
+    public function borrarImagen() {
+        // Comprobar si existe el archivo
+        $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+        if($existeArchivo) {
+            unlink(CARPETA_IMAGENES . $this->imagen);
+        }
+    }
 
     // Consulta SQL para crear un objeto en Memoria
     public static function consultarSQL($query) {
@@ -134,7 +153,7 @@ class ActiveRecord {
         $query .= " ) VALUES (' "; 
         $query .= join("', '", array_values($atributos));
         $query .= " ') ";
-
+        
         // Resultado de la consulta
         $resultado = self::$db->query($query);
         return [

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,6 +18,7 @@
   <title>Electric Solutions</title>
 </head>
 <body>
+ 
 
     <?php echo $contenido; ?>
 

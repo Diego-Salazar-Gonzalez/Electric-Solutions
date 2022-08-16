@@ -28,14 +28,18 @@ class Router
 
         // $auth = $_SESSION['login'] ?? null;
 
-        $currentUrl = $_SERVER['REQUEST_URI'] === '' ? '/' : $_SERVER['REQUEST_URI'];
+        $urlActual = $_SERVER['REQUEST_URI'] === '' ? '/' : $_SERVER['REQUEST_URI'];
+       
         $method = $_SERVER['REQUEST_METHOD'];
 
         if ($method === 'GET') {
-            $fn = $this->getRoutes[$currentUrl] ?? null;
+            $urlActual = explode('?',$urlActual)[0];//para pasar variables por get en mvc
+            $fn = $this->getRoutes[$urlActual] ?? null;
         } else {
-            $fn = $this->postRoutes[$currentUrl] ?? null;
+            $urlActual = explode('?',$urlActual)[0];//para pasar variables cuando necesites un post
+            $fn = $this->postRoutes[$urlActual] ?? null;
         }
+        
 
 
         if ( $fn ) {

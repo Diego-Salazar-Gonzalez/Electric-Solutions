@@ -1,17 +1,14 @@
 <?php include_once __DIR__ .'/../templates/barra.php';?>
-<div class="servicio">
+<div class="servicio" style="background-image: url('/imagenes/<?php echo $servicio->imagen; ?>');" >
     <div class="contenedor servicio-contenedor">
         <div class="descripcion-servicio">
             <h2>
-                Nombre Servicio
+                <?php echo $servicio->titulo;?>
             </h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam pariatur, culpa cum amet mollitia .</p>
-            <ul>
-                <li>consectetur, adipisicing elit.</li>
-                <li>consectetur, adipisicing elit.</li>
-                <li>consectetur, adipisicing elit.</li>
-                
-            </ul>
+            <p> 
+                <?php echo $servicio->puntosclave;?>
+            </p>
+            
         </div>
         <div class="formulario-servicio formulario">
             <form action="/servicios/servicio" method="POST" class="formulario-contacto">
@@ -25,9 +22,11 @@
 <main >
     <div class="servicio-contenido contenedor contenido-principal">
         <h3>
-            Titulo Persuasivo 
+            <?php echo $servicio->titulo_persuasivo ?>
         </h3>
-        <h4>subtitulo persuasivo</h4>
+        <h4>
+            <?php echo $servicio->subtitulo_persuasivo?>
+        </h4>
 
         <div class="contenedor-caracteristicas">
             <h3>

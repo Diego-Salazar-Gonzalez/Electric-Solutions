@@ -3,6 +3,7 @@ namespace Controllers;
 
 use MVC\Router;
 use Classes\Email;
+use Model\Servicio;
 use PHPMailer\PHPMailer\PHPMailer;
 
 class PaginasController{
@@ -19,8 +20,10 @@ class PaginasController{
         ]);
     }
     public static function servicios(Router $router){
+        $servicios = Servicio::all();
         $router->render('paginas/servicios',[
-            'titulo' => 'servicios'
+            'titulo' => 'servicios',
+            'servicios'=>$servicios
         ]);
     }
     public static function contacto(Router $router){
@@ -30,7 +33,6 @@ class PaginasController{
             $usuario= ($_POST['contacto']);
              
             $email = new Email($usuario['nombre'],$usuario['email'],$usuario['telefono'],$usuario['mensaje']);
-            
             $mensaje = $email->enviarMensaje();
           
         }
@@ -41,6 +43,8 @@ class PaginasController{
     }
     public static function servicio(Router $router){
         $mensaje=null;
+        $id = validarId('/servicios');
+        $servicio = servicio::find($id);
         if($_SERVER['REQUEST_METHOD'] === 'POST'){
             $usuario= ($_POST['contacto']);
             
@@ -51,6 +55,7 @@ class PaginasController{
         }
         $router->render('paginas/servicio',[
             'titulo' => '',
+            'servicio' =>$servicio,
             'mensaje' =>$mensaje
         ]);
     }
